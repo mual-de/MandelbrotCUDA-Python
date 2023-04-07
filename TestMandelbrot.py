@@ -4,11 +4,11 @@ from PIL import Image, ImageDraw
 from timeit import default_timer as timer
 
 config = MandelbrotCUDA.MandelbrotConfig()
-config.height = 16384
-config.width = 16384
-config.reMin = -1.0
-config.reMax = 0.6
-config.imMin = -0.4
+config.height = 2160
+config.width = 3840
+config.reMin = -2.0
+config.reMax = 1.2
+config.imMin = -1.4
 config.imMax = 1.4
 config.maxIter = 200
 config.maxSqr = 2.0
@@ -30,6 +30,7 @@ colors = MandelbrotCUDA.createMandelbrotCUDAColorized(config)
 end = timer()
 
 print("Runtime is: %s" %(end - start))
+
 
 im = Image.new('RGB', (config.width, config.height), (0, 0, 0))
 draw = ImageDraw.Draw(im)
